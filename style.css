@@ -1,0 +1,16 @@
+/* Profile Website   */
+/* by Brian Cottrell */
+/* 01-09-2015        */
+
+.site-container{
+    width: 50%;
+    padding: 25% 0%;
+    margin-top: 0%;
+    margin-left: 25%;
+    background-color: rgb(200,200,200);
+}
+.site{
+	position: absolute;
+	border-radius: 50%;
+	background-color: rgb(100,255,100);
+}
