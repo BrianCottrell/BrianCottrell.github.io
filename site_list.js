@@ -22,18 +22,18 @@ function getSiteList(){
         },
         {
             name: 'Fandango Discover',
-            url: 'http://damp-falls-4815.herokuapp.com',
+            url: 'http://http://briancottrell.github.io/fandango-discovery',
             image: 'images/site4.png'
         },
         {
-            name: 'Pathfinding Challenge',
-            url: 'http://damp-falls-4815.herokuapp.com',
-            image: 'images/site1.png'
+            name: '3D Tic-Tac-Toe',
+            url: 'http://briancottrell.firebaseapp.com',
+            image: 'images/site5.png'
         },
         {
             name: 'Pathfinding Challenge',
-            url: 'http://damp-falls-4815.herokuapp.com',
-            image: 'images/site1.png'
+            url: 'http://briancottrell.github.io/minesweeper',
+            image: 'images/site6.png'
         },
         // {
         //     name: 'Pathfinding Challenge',
@@ -46,9 +46,9 @@ function getSiteList(){
         //     image: 'images/site1.png'
         // },
         {
-            name: 'Pathfinding Challenge',
-            url: 'http://damp-falls-4815.herokuapp.com',
-            image: 'images/site1.png'
+            name: 'Connected Tic-Tac-Toe',
+            url: 'http://briansproject1.firebaseapp.com/',
+            image: 'images/site7.png'
         }
     ];
     return siteInfo;

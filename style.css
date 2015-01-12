@@ -1,20 +1,22 @@
 /* Profile Website   */
 /* by Brian Cottrell */
 /* 01-09-2015        */
-
+body{
+    background-color: rgb(0,0,0);
+}
 .site-container{
     width: 50%;
     padding: 25% 0%;
     margin-top: 0%;
     margin-left: 25%;
-    background-color: rgb(200,200,200);
+    background-color: rgb(0,0,0);
 }
 .site{
-	position: absolute;
-	background-color: rgb(255,255,255);
-	background-size: contain;
+    position: absolute;
+    background-color: rgb(255,255,255);
+    background-size: contain;
     background-repeat: no-repeat;
-    border: 2px solid black;
+    border: 2px solid rgb(100,100,100);
     border-radius: 50%;
 }
 .info-container{
@@ -22,17 +24,30 @@
     padding: 10%;
     margin-left: 15%;
     margin-top: -10%;
+    background-color: rgb(200,200,200);
+    border: 2px solid rgb(100,100,100);
     border-radius: 50%;
 }
 .info{
     position: absolute;
     width: 80%;
-    height: 60%;
+    height: 35%;
     margin-left: -40%;
-    margin-top: -30%;
-    color: blue;
+    margin-top: -5%;
+    color: rgb(100,100,100);
     font-size: 20px;
     font-family: sans-serif;
-    border-radius: 10%;
-    border: 2px solid blue;
+
+    border-radius: 5%;
+}
+.profile-image{
+    position: absolute;
+    width: 35%;
+    height: 35%;
+    margin-left: -17.5%;
+    margin-top: -45%;
+    background: url(images/profile-image.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 50%;
 }
