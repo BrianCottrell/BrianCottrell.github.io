@@ -4,6 +4,7 @@
 
 /*VARIABLES*/
 var sites,          //An array to store information about each site to display
+    siteInfo,       //Contains stored information about each site
     siteCount,      //Total number of sites to display
     radius,         //Radius of each site element
     offset,         //Offset distance between each site element
@@ -16,16 +17,6 @@ var sites,          //An array to store information about each site to display
     selectedSite,   //Stores the currently seleced site
     xInterval,      //Interval for incrementing the x position during select animation
     yInterval;      //Interval for incrementing the y position during select animation
-
-var siteInfo = [
-    {name: 'Pathfinding Challenge', url: 'http://damp-falls-4815.herokuapp.com', image: 'site1.png'},
-    {name: 'Business Guide', url: 'http://predict-app.herokuapp.com', image: 'site1.png'},
-    {name: 'Novel Endings', url: 'http://limitless-peak-5524.herokuapp.com', image: 'site1.png'},
-    {name: 'Pathfinding Challenge', url: 'http://damp-falls-4815.herokuapp.com', image: 'site1.png'},
-    {name: 'Pathfinding Challenge', url: 'http://damp-falls-4815.herokuapp.com', image: 'site1.png'},
-    {name: 'Pathfinding Challenge', url: 'http://damp-falls-4815.herokuapp.com', image: 'site1.png'},
-    {name: 'Pathfinding Challenge', url: 'http://damp-falls-4815.herokuapp.com', image: 'site1.png'}
-    ];
 
 /*FUNCTIONS*/
 //This sets the parameters for the display page when the site loads
@@ -48,6 +39,7 @@ function setPage(num, siteClass, container){
         sites[i].style.marginTop = -radius+'%';
         sites[i].style.marginLeft = steps+0.75*siteCount*i+'%';
         sites[i].style.background = 'url('+siteInfo[i].image+')';
+        sites[i].style.backgroundColor = 'rgb(255, 255, 255)';
         sites[i].style.backgroundSize = 'contain';
         sites[i].style.backgroundRepeat = 'no-repeat';
         container.appendChild(sites[i]);
@@ -90,6 +82,7 @@ function selectSite(){
     sequence    = 0;                    //Reset the animation sequence number
     steps       = 50;                   //Set the number of move steps
     selectedSite= sites.indexOf(this);  //Store the position index of the selected site
+    this.style.zIndex = '1';
     //Set the x and y move intervals for each step in the animation
     xInterval   = offset*Math.cos(selectedSite*2*Math.PI/sites.length)/steps;
     yInterval   = offset*Math.sin(selectedSite*2*Math.PI/sites.length)/steps;
@@ -103,9 +96,9 @@ function animateSite(){
         sites[selectedSite].style.marginLeft = offset-(steps-sequence)*xInterval+'%';
     //Then animate the site element to grow until it covers the screen
     }else{
-        sites[selectedSite].style.padding = radius+sequence-growSteps+'%';
-        sites[selectedSite].style.marginTop = growSteps-radius-sequence+'%';
-        sites[selectedSite].style.marginLeft = offset-sequence+growSteps+'%';
+        sites[selectedSite].style.padding = radius+(sequence-growSteps)*0.8+'%';
+        sites[selectedSite].style.marginTop = growSteps*0.8-radius-sequence*0.8+'%';
+        sites[selectedSite].style.marginLeft = offset-sequence*0.8+growSteps*0.8+'%';
     }
     sequence++
     //End the timer and redirect to the site when the animation finishes
@@ -116,7 +109,6 @@ function animateSite(){
 }
 
 /*PROGRAM*/
+siteInfo = getSiteList();
 setPage(siteInfo.length, 'site', document.getElementsByClassName('site-container')[0]);
-sites[0].style.backgroundColor = 'blue';
-sites[1].style.backgroundColor = 'red';
 start = setInterval(animateDisplay, 5);
