@@ -43,10 +43,16 @@ function setPage(num, siteClass, container){
     for(var i = 0; i < document.getElementsByClassName('button').length; i++){
         document.getElementsByClassName('button')[i].addEventListener('mouseover', addFocus);
         document.getElementsByClassName('button')[i].addEventListener('mouseleave', unFocus);
-        document.getElementsByClassName('button')[i].addEventListener('click', function(){
-            document.getElementsByClassName('info')[0].innerHTML = getInfoText()[2];
-        });
     }
+    document.getElementsByClassName('button')[0].addEventListener('click', function(){
+        document.getElementsByClassName('info')[0].innerHTML = getInfoText()[0];
+    });
+    document.getElementsByClassName('button')[1].addEventListener('click', function(){
+        document.getElementsByClassName('info')[0].innerHTML = getInfoText()[1];
+    });
+    document.getElementsByClassName('button')[2].addEventListener('click', function(){
+        document.getElementsByClassName('info')[0].innerHTML = getInfoText()[2];
+    });
     //For each site create and add a circular html element with the specified properties
     for(var i = 0; i < sites.length; i++){
         sites[i] = document.createElement('div');
