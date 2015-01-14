@@ -16,7 +16,10 @@ var sites,          //An array to store information about each site to display
     spacing,        //Spacing between site elements when loading the display
     selectedSite,   //Stores the currently seleced site
     xInterval,      //Interval for incrementing the x position during select animation
-    yInterval;      //Interval for incrementing the y position during select animation
+    yInterval,      //Interval for incrementing the y position during select animation
+    savedText,
+    savedBorder,
+    fontSize;
 
 /*FUNCTIONS*/
 //This sets the parameters for the display page when the site loads
@@ -31,6 +34,19 @@ function setPage(num, siteClass, container){
     spacing     = 2.25;                 //Spacing between sites for display animation
     rotationSteps = 120;                //Number of steps for ratation transition
     sites.length = siteCount;           //Set length of site array
+    //Adjust the font size to based on screen width
+    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
+    //Set up the information section
+    document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
+    document.getElementsByClassName('button-container')[0].style.fontSize = fontSize+'px';
+    document.getElementsByClassName('info')[0].innerHTML = getInfoText()[0];
+    for(var i = 0; i < document.getElementsByClassName('button').length; i++){
+        document.getElementsByClassName('button')[i].addEventListener('mouseover', addFocus);
+        document.getElementsByClassName('button')[i].addEventListener('mouseleave', unFocus);
+        document.getElementsByClassName('button')[i].addEventListener('click', function(){
+            document.getElementsByClassName('info')[0].innerHTML = getInfoText()[2];
+        });
+    }
     //For each site create and add a circular html element with the specified properties
     for(var i = 0; i < sites.length; i++){
         sites[i] = document.createElement('div');
@@ -64,6 +80,8 @@ function animateDisplay(){
             //Add event listeners to each site element once the animation reaches its end
             if(sequence == steps+rotationSteps){
                 sites[i].addEventListener('click', selectSite);
+                sites[i].addEventListener('mouseover', displaySiteInfo);
+                sites[i].addEventListener('mouseleave', removeSiteInfo);
             }
         }
     }
@@ -106,6 +124,40 @@ function animateSite(){
         clearInterval(start);
         window.location.href = siteInfo[selectedSite].url;
     }
+}
+
+function displaySiteInfo(){
+    var currentSite = siteInfo[sites.indexOf(this)];
+    var text = '<strong>'+currentSite.name+'</strong>'+'<br/>'+currentSite.description;
+    savedText = document.getElementsByClassName('info')[0].innerHTML
+    savedBorder = this.style.border;
+    document.getElementsByClassName('info')[0].innerHTML = text;
+    this.style.border = '2px solid yellow';
+}
+
+function removeSiteInfo(){
+    if(savedText){
+        document.getElementsByClassName('info')[0].innerHTML = savedText;
+    }else{
+        document.getElementsByClassName('info')[0].innerHTML = getInfoText()[0];
+    }
+    this.style.border = savedBorder;
+}
+
+function addFocus(){
+    this.style.color = 'rgb(200,200,200)';
+    this.style.backgroundColor = 'rgb(100,100,100)';
+}
+
+function unFocus(){
+    this.style.color = 'rgb(100,100,100)';
+    this.style.backgroundColor = 'transparent';
+}
+
+window.onresize = function(event){
+    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
+    document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
+    document.getElementsByClassName('button-container')[0].style.fontSize = fontSize-1+'px';
 }
 
 /*PROGRAM*/

@@ -22,7 +22,7 @@ body{
 .info-container{
     position: absolute;
     padding: 10%;
-    margin-left: 15%;
+    margin-left: 14.8%;
     margin-top: -10%;
     background-color: rgb(200,200,200);
     border: 2px solid rgb(100,100,100);
@@ -35,7 +35,6 @@ body{
     margin-left: -40%;
     margin-top: -5%;
     color: rgb(100,100,100);
-    font-size: 20px;
     font-family: sans-serif;
 
     border-radius: 5%;
@@ -50,4 +49,20 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
     border-radius: 50%;
+}
+.button-container{
+    position: absolute;
+    width: 50%;
+    height: 10%;
+    margin-left: -25%;
+    margin-top: 30%;
+}
+.button{
+    display: inline;
+    width: 30%;
+    height: 30%;
+    color: rgb(100,100,100);
+    font-family: sans-serif;
+    border: 2px solid rgb(100,100,100);
+    cursor: default;
 }
