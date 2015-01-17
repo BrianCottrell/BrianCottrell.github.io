@@ -17,9 +17,9 @@ var sites,          //An array to store information about each site to display
     selectedSite,   //Stores the currently seleced site
     xInterval,      //Interval for incrementing the x position during select animation
     yInterval,      //Interval for incrementing the y position during select animation
-    savedText,
-    savedBorder,
-    fontSize;
+    savedText,      //Stores the current default text for the info section
+    savedBorder,    //Stores the original border color when it is changed
+    fontSize;       //Sets the font size of all text
 
 /*FUNCTIONS*/
 //This sets the parameters for the display page when the site loads
@@ -131,7 +131,7 @@ function animateSite(){
         window.location.href = siteInfo[selectedSite].url;
     }
 }
-
+//Displays information about the currently selected site in the info section
 function displaySiteInfo(){
     var currentSite = siteInfo[sites.indexOf(this)];
     var text = '<strong>'+currentSite.name+'</strong>'+'<br/>'+currentSite.description;
@@ -140,7 +140,7 @@ function displaySiteInfo(){
     document.getElementsByClassName('info')[0].innerHTML = text;
     this.style.border = '2px solid yellow';
 }
-
+//Returns the contents of the info section to its previous state
 function removeSiteInfo(){
     if(savedText){
         document.getElementsByClassName('info')[0].innerHTML = savedText;
@@ -149,17 +149,17 @@ function removeSiteInfo(){
     }
     this.style.border = savedBorder;
 }
-
+//Changes the color of an elements when during a mouse over event
 function addFocus(){
     this.style.color = 'rgb(200,200,200)';
     this.style.backgroundColor = 'rgb(100,100,100)';
 }
-
+//Restores the original color when the mouse leaves an element
 function unFocus(){
     this.style.color = 'rgb(100,100,100)';
     this.style.backgroundColor = 'transparent';
 }
-
+//Redraws the display and adjusts the proportins when the window is resized
 window.onresize = function(event){
     fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
     document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
