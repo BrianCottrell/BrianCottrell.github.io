@@ -37,9 +37,9 @@ function getSiteList(){
         },
         {
             name: 'Minesweeper',
-            url: 'http://briancottrell.github.io/minesweeper',
+            url: 'http://briancottrell.github.io/browser-apps',
             image: 'images/site6.png',
-            description: 'An online version of Minesweeper.'
+            description: 'A collection of simple applications to run in a web browser.'
         },
         // {
         //     name: 'Pathfinding Challenge',
