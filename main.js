@@ -35,7 +35,7 @@ function setPage(num, siteClass, container){
     rotationSteps = 120;                //Number of steps for ratation transition
     sites.length = siteCount;           //Set length of site array
     //Adjust the font size to based on screen width
-    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
+    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/15);
     //Set up the information section
     document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
     document.getElementsByClassName('button-container')[0].style.fontSize = fontSize+'px';
@@ -95,7 +95,7 @@ function animateDisplay(){
     //End the timer when the animation reaches the total number of steps
     if(sequence > steps+rotationSteps){
         clearInterval(start);
-        fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
+        fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/15);
         document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
         document.getElementsByClassName('button-container')[0].style.fontSize = fontSize-1+'px';
     }  
@@ -164,7 +164,7 @@ function unFocus(){
 }
 //Redraws the display and adjusts the proportins when the window is resized
 window.onresize = function(){
-    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/12.5);
+    fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/15);
     document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
     document.getElementsByClassName('button-container')[0].style.fontSize = fontSize-1+'px';
 }
