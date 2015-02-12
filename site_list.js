@@ -36,7 +36,7 @@ function getSiteList(){
             description: 'By bringing tic-tac-toe into the third dimension, the game requires more strategy and ties are not possible on a 3x3x3 board.'
         },
         {
-            name: 'Minesweeper',
+            name: 'Browser Apps',
             url: 'http://briancottrell.github.io/browser-apps',
             image: 'images/site6.png',
             description: 'A collection of simple applications to run in a web browser.'
