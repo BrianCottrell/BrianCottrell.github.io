@@ -95,9 +95,6 @@ function animateDisplay(){
     //End the timer when the animation reaches the total number of steps
     if(sequence > steps+rotationSteps){
         clearInterval(start);
-        fontSize = Math.round((document.getElementsByClassName('info')[0].offsetWidth-40)/15);
-        document.getElementsByClassName('info')[0].style.fontSize = fontSize+'px';
-        document.getElementsByClassName('button-container')[0].style.fontSize = fontSize-1+'px';
     }  
 }
 //This runs whenever a site element is clicked
