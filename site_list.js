@@ -3,6 +3,7 @@
 /* 01-11-2015        */
 
 //Returns information about a list of websites
+//Images are 700px x 700px
 function getSiteList(){
     var siteInfo = [
         {
@@ -54,10 +55,10 @@ function getSiteList(){
         //    description: ''
         // },
         {
-            name: 'Connected Tic-Tac-Toe',
-            url: 'http://briansproject1.firebaseapp.com/',
+            name: 'Home for Humanity',
+            url: 'http://home-for-humanity.herokuapp.com/',
             image: 'images/site7.png',
-            description: 'An expanded variation of tic-tac-toe playable across a network.'
+            description: 'A 24 hour hackathon entry and winner of the SAP Landlords & Tenants in San Francisco Challenge at the 2015 Developer Week Hackathon.'
         }
     ];
     return siteInfo;
