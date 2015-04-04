@@ -128,6 +128,7 @@ function animateSite(){
     //End the timer and redirect to the site when the animation finishes
     if(sequence > steps+growSteps){
         clearInterval(start);
+        window.location.reload();
         window.location.href = siteInfo[selectedSite].url;
     }
 }
@@ -167,6 +168,8 @@ window.onresize = function(){
 }
 
 /*PROGRAM*/
-siteInfo = getSiteList();
-setPage(siteInfo.length, 'site', document.getElementsByClassName('site-container')[0]);
-start = setInterval(animateDisplay, 5);
+window.onload = function(){
+    siteInfo = getSiteList();
+    setPage(siteInfo.length, 'site', document.getElementsByClassName('site-container')[0]);
+    start = setInterval(animateDisplay, 5);
+}
